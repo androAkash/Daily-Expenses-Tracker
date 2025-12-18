@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 * - How to organize it
 * -What each field means
 */
-enum class TransactionType{
+enum class  TransactionType{
     INCOME,
     EXPENSE
 }
