@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-
 data class TransactionState(
     val transactions: List<TransactionEntity> = emptyList(),
     val isOpen: Boolean = false
@@ -58,3 +57,23 @@ class ExpenseViewModel (val repository: ExpenseRepository): ViewModel() {
         }
     }
 }
+/**so repository is our messenger
+ * YES! EXACTLY! 🎯📬
+
+📬 Repository = Messenger (Perfect Analogy!)
+UI ↔ ViewModel ↔ Repository ↔ DAO ↔ Database
+↑
+MESSENGER!
+
+💌 Repository's Job:
+Going DOWN (saving data):
+ViewModel: "Hey Repository, deliver this transaction to the database!"
+Repository: "Sure! *walks to DAO* Here you go!"
+DAO: *saves to database*
+Going UP (getting data):
+Database: *data changes*
+DAO: "New data available!"
+Repository: *passes it along* "ViewModel, you got mail!"
+ViewModel: *updates UI state*
+UI: *displays new data
+ **/
